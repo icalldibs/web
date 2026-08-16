@@ -81,7 +81,7 @@ describe("HeroShowcase", () => {
         imageAlt: "Concert tickets in front of a live concert stage",
         width: 900,
         height: 900,
-        location: "Downtown Miami",
+        location: "Downtown",
         rating: "2.4 mi",
         message: "Gary is selling them for $85 each. Pretty good seats too.",
         reply: "fs bet! connect me w him",

@@ -476,10 +476,10 @@ a { color: inherit; }
     line-height: 1.03;
   }
   .hero-heading__prefix { margin-bottom: 3px; }
-  .phone-form { width: min(100%, 430px); margin-top: 17px; padding-bottom: 18px; }
+  .phone-form { width: min(calc(100% - 40px), 360px); margin-top: 17px; padding-bottom: 18px; }
   .form-row { position: relative; gap: 9px; }
   .phone-form__icon { width: 38px; height: 38px; flex-basis: 38px; }
-  .phone-input { width: calc(100% - 12px); min-height: 38px; margin-inline: auto; font-size: .82rem; }
+  .phone-input { min-height: 38px; font-size: .82rem; }
   .phone-form__submit { min-height: 38px; padding: 0 15px; font-size: .82rem; }
   .phone-form__hint {
     position: absolute;

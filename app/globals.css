@@ -459,6 +459,7 @@ a { color: inherit; }
   .imessage-bubble--sent { top: 78%; right: -2%; width: max-content; max-width: 82%; margin: 0; }
   .imessage-bubble--request-first { top: 18%; right: -2%; }
   .imessage-bubble--upload-request { left: -25%; }
+  .imessage-bubble--jordans-request { left: -38%; }
   .imessage-bubble--tickets-reply,
   .imessage-bubble--macbook-reply,
   .imessage-bubble--bike-reply { top: 72%; }

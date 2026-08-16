@@ -425,9 +425,9 @@ a { color: inherit; }
     transform: none;
   }
   .showcase-visual {
-    top: clamp(88px, 12svh, 122px);
+    top: auto;
     right: auto;
-    bottom: auto;
+    bottom: max(190px, calc(env(safe-area-inset-bottom) + 180px));
     left: 50%;
     width: min(72vw, 290px);
     aspect-ratio: 24 / 23;

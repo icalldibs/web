@@ -459,7 +459,7 @@ a { color: inherit; }
   .imessage-bubble--sent { top: 78%; right: -2%; width: max-content; max-width: 82%; margin: 0; }
   .imessage-bubble--request-first { top: 18%; right: -2%; }
   .imessage-bubble--upload-request {
-    left: 75%;
+    left: 82%;
     width: max-content;
     max-width: 195%;
     transform: translateX(-100%);
@@ -479,7 +479,7 @@ a { color: inherit; }
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: clamp(1.55rem, 7.2vw, 2.15rem);
+    font-size: clamp(1.65rem, 7.6vw, 2.25rem);
     line-height: 1.03;
   }
   .hero-heading__prefix { margin-bottom: 3px; }

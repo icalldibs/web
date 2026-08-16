@@ -29,7 +29,7 @@ describe("HeroShowcase", () => {
     expect(screen.getByTestId("hero-heading-ps5").querySelector(".hero-heading__remainder")).toHaveClass("hero-heading__remainder");
     expect(screen.getByTestId("hero-heading-ps5").querySelector(".hero-heading__remainder")).not.toHaveClass("hero-heading__remainder--buy");
     expect(screen.getByAltText("PlayStation 5 console in its box")).toBeInTheDocument();
-    expect(screen.getByText("yooo lets make it happen!")).toBeInTheDocument();
+    expect(screen.getByText("let’s make it happen!")).toBeInTheDocument();
 
     act(() => vi.advanceTimersByTime(HERO_ROTATION_MS - 1));
     expect(screen.getByTestId("hero-heading-ps5")).toHaveTextContent("buy that PS5");
@@ -55,11 +55,10 @@ describe("HeroShowcase", () => {
     expect(screen.getAllByText("Miami, FL")).toHaveLength(2);
     expect(jordanCard).toHaveTextContent("Miami, FL");
     expect(jordanCard).toHaveTextContent("1.1");
-    expect(screen.getByText(/These Jordans are in demand nearby/)).toBeInTheDocument();
-    expect(screen.getByText(/selling for around \$100/)).toBeInTheDocument();
-    expect(screen.getByText("yoo i wanna sell my jordans")).toBeInTheDocument();
+    expect(screen.getByText(/Similar Jordans sell for \$100 nearby/)).toBeInTheDocument();
+    expect(screen.getByText("let’s list my Jordans")).toBeInTheDocument();
     const userMessage = screen.getByTestId("hero-reply-jordans");
-    const dibsResponse = screen.getByText(/These Jordans are in demand nearby/);
+    const dibsResponse = screen.getByText(/Similar Jordans sell for \$100 nearby/);
     expect(jordanCard).toHaveClass("featured-popup-stack--user-upload");
     expect(userMessage).toHaveClass("imessage-bubble--upload-request");
     expect(dibsResponse).toHaveClass("imessage-bubble--upload-response");
@@ -81,8 +80,8 @@ describe("HeroShowcase", () => {
         height: 900,
         location: "Downtown Miami",
         rating: "2.4 mi",
-        message: "Gary is selling them for $85 each. Pretty good seats too.",
-        reply: "fs bet! connect me w him",
+        message: "Gary has good seats for $85 each.",
+        reply: "great, connect us!",
       },
       {
         id: "macbook",
@@ -93,8 +92,8 @@ describe("HeroShowcase", () => {
         height: 960,
         location: "Brickell, Miami",
         rating: "3.2 mi",
-        message: "Found one for $650. M1, barely used.",
-        reply: "yoo thanks lets make a deal!",
+        message: "Found an M1 for $650, barely used.",
+        reply: "let’s make a deal!",
       },
       {
         id: "camera",
@@ -106,9 +105,9 @@ describe("HeroShowcase", () => {
         location: "Miami Beach",
         rating: "2.1 mi",
         userUpload: true,
-        message: "I’d say around $700. I found 8 buyers near you looking for cameras like this. I’d list it and see what happens.",
-        reply: "yo dibs how much you think i can get for this",
-        replyLines: ["yo dibs how much you think", "i can get for this"],
+        message: "Worth about $700. Eight nearby buyers want one like it.",
+        reply: "dibs, what could I get for this?",
+        replyLines: ["dibs, what could I", "get for this?"],
       },
       {
         id: "bike",
@@ -119,9 +118,9 @@ describe("HeroShowcase", () => {
         height: 960,
         location: "Coral Gables",
         rating: "1.8 mi",
-        message: "Found a Trek for $420. Looks barely used.",
-        reply: "lowk needed it! tho offer $350 for it",
-        replyLines: ["lowk needed it!", "tho offer $350 for it"],
+        message: "Found a barely used Trek for $420.",
+        reply: "offer $350 for it",
+        replyLines: ["offer $350", "for it"],
       },
     ]);
   });
@@ -134,8 +133,8 @@ describe("HeroShowcase", () => {
 
     expect(imageStack).toHaveClass("featured-popup-stack--tickets");
     expect(imageStack).not.toHaveClass("featured-popup-stack--request-first");
-    expect(imageStack.querySelector(".imessage-bubble")).toHaveTextContent("Gary is selling them for $85 each. Pretty good seats too.");
-    expect(reply).toHaveTextContent("fs bet! connect me w him");
+    expect(imageStack.querySelector(".imessage-bubble")).toHaveTextContent("Gary has good seats for $85 each.");
+    expect(reply).toHaveTextContent("great, connect us!");
     expect(reply).toHaveClass("imessage-bubble--tickets-reply");
     expect(reply).not.toHaveClass("imessage-bubble--request-first");
     expect(imageStack.compareDocumentPosition(reply) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
@@ -149,8 +148,8 @@ describe("HeroShowcase", () => {
 
     expect(imageStack).toHaveClass("featured-popup-stack--macbook");
     expect(imageStack).not.toHaveClass("featured-popup-stack--request-first");
-    expect(imageStack.querySelector(".imessage-bubble")).toHaveTextContent("Found one for $650. M1, barely used.");
-    expect(reply).toHaveTextContent("yoo thanks lets make a deal!");
+    expect(imageStack.querySelector(".imessage-bubble")).toHaveTextContent("Found an M1 for $650, barely used.");
+    expect(reply).toHaveTextContent("let’s make a deal!");
     expect(reply).toHaveClass("imessage-bubble--macbook-reply");
     expect(reply).not.toHaveClass("imessage-bubble--request-first");
     expect(imageStack.compareDocumentPosition(reply) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
@@ -193,7 +192,7 @@ describe("HeroShowcase", () => {
 
     expect(screen.getByTestId("hero-card-bike")).toHaveClass("featured-popup-stack--bike");
     expect(screen.getByTestId("hero-reply-bike")).toHaveClass("imessage-bubble--bike-reply");
-    expect(screen.getByTestId("hero-reply-bike")).toHaveTextContent("lowk needed it! tho offer $350 for it");
+    expect(screen.getByTestId("hero-reply-bike")).toHaveTextContent("offer $350 for it");
     expect(screen.getByTestId("hero-reply-bike").querySelectorAll("br")).toHaveLength(1);
     expect(screen.getByTestId("hero-card-ps5")).not.toHaveClass("featured-popup-stack--bike");
     expect(screen.getByTestId("hero-reply-ps5")).not.toHaveClass("imessage-bubble--bike-reply");

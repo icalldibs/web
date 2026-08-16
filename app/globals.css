@@ -407,30 +407,83 @@ a { color: inherit; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 @media (max-width: 600px) {
-  .home-location-badge { width: 88px; }
-  .featured-popup-stack { top: -7%; left: 14%; width: 45%; }
-  .featured-popup-stack--user-upload { top: -16%; right: -12%; left: auto; width: 47%; }
-  .featured-popup-stack--camera { top: -12%; }
-  .featured-popup-stack--bike { top: 3%; }
-  .featured-popup-stack--request-first { top: 28%; }
-  .featured-popup-stack--tickets { top: 3%; }
-  .featured-popup-stack--macbook { top: 3%; }
-  .imessage-bubble { width: 148%; margin-left: -10%; }
-  .imessage-bubble--upload-response { top: 51%; left: -8%; width: 66%; margin: 0; }
-  .imessage-bubble--camera-response { top: 66%; }
-  .imessage-bubble--bike-reply { top: 79%; padding-left: 24px; }
-  .imessage-bubble--sent { top: 89%; right: 2%; width: max-content; margin: 0; }
-  .imessage-bubble--request-first { top: 22%; right: 2%; }
-  .imessage-bubble--tickets-reply { top: 79%; }
-  .imessage-bubble--macbook-reply { top: 79%; }
-  .hero-content { top: 109%; width: calc(100vw - 32px); }
-  .hero-heading { font-size: clamp(2rem, 10vw, 3.2rem); }
-  .phone-form { margin-top: 18px; }
-  .form-row { min-height: 44px; gap: 12px; }
-  .phone-form__icon { width: 40px; height: 40px; flex-basis: 40px; margin-top: 2px; }
-  .phone-input { min-height: 44px; font-size: .88rem; }
-  .phone-form__submit { min-height: 42px; padding-inline: 18px; font-size: .96rem; }
-  .phone-form__hint { margin-top: 7px; font-size: .75rem; }
+  .blank-page {
+    display: block;
+    min-height: 100svh;
+    overflow: hidden;
+  }
+  .home-header { top: 18px; left: 20px; }
+  .home-header__brand,
+  .home-header__logo { width: 44px; height: 44px; }
+  .home-location-badge { top: 15px; right: 18px; width: 82px; }
+  .phone-showcase {
+    position: absolute;
+    inset: 0;
+    width: 100vw;
+    height: 100svh;
+    aspect-ratio: auto;
+    transform: none;
+  }
+  .showcase-visual {
+    top: clamp(88px, 12svh, 122px);
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    width: min(72vw, 290px);
+    aspect-ratio: 24 / 23;
+    transform: translateX(-50%) scale(.86);
+  }
+  .featured-popup-stack { top: -5%; left: 7%; width: 42%; }
+  .featured-popup-stack--user-upload { top: -8%; right: -2%; left: auto; width: 42%; }
+  .featured-popup-stack--camera { top: -5%; }
+  .featured-popup-stack--bike,
+  .featured-popup-stack--tickets,
+  .featured-popup-stack--macbook { top: 4%; }
+  .featured-popup-stack--request-first { top: 26%; }
+  .featured-popup { padding: 5px 5px 7px; border-radius: 13px; }
+  .featured-popup__photo { border-radius: 9px; }
+  .featured-popup__meta { gap: 3px; padding: 6px 1px 0; font-size: .62rem; }
+  .featured-popup__location { gap: 2px; }
+  .featured-popup__location svg { width: 10px; flex-basis: 10px; }
+  .imessage-bubble {
+    width: 142%;
+    margin: 4% 0 0 -6%;
+    padding: 8px 11px;
+    border-radius: 15px;
+    font-size: clamp(.82rem, 3.5vw, 1rem);
+    line-height: 1.22;
+  }
+  .imessage-bubble__distance { margin-top: .6em; }
+  .imessage-bubble--upload-response { top: 49%; left: 2%; width: 61%; margin: 0; }
+  .imessage-bubble--camera-response { top: 59%; }
+  .imessage-bubble--sent { top: 78%; right: 3%; width: max-content; max-width: 82%; margin: 0; }
+  .imessage-bubble--request-first { top: 18%; right: 3%; }
+  .imessage-bubble--tickets-reply,
+  .imessage-bubble--macbook-reply,
+  .imessage-bubble--bike-reply { top: 72%; }
+  .imessage-bubble--bike-reply { padding-left: 14px; }
+  .hero-content {
+    top: auto;
+    bottom: max(68px, calc(env(safe-area-inset-bottom) + 56px));
+    width: calc(100vw - 32px);
+    transform: none;
+  }
+  .hero-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: clamp(1.55rem, 7.2vw, 2.15rem);
+    line-height: 1.03;
+  }
+  .hero-heading__prefix { margin-bottom: 3px; }
+  .phone-form { width: min(100%, 430px); margin-top: 17px; }
+  .form-row { gap: 9px; }
+  .phone-form__icon { width: 38px; height: 38px; }
+  .phone-input { height: 38px; font-size: .82rem; }
+  .phone-form__submit { min-height: 38px; padding: 0 15px; font-size: .82rem; }
+  .phone-form__hint { margin-top: 5px; font-size: .66rem; white-space: nowrap; }
+  .site-footer { bottom: max(12px, env(safe-area-inset-bottom)); font-size: .69rem; }
+  .site-footer nav { gap: 16px; }
 }
 
 @media (max-width: 380px) {

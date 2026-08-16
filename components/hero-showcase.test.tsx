@@ -63,8 +63,10 @@ describe("HeroShowcase", () => {
     expect(jordanCard).toHaveClass("featured-popup-stack--user-upload");
     expect(userMessage).toHaveClass("imessage-bubble--upload-request");
     expect(userMessage).toHaveClass("imessage-bubble--jordans-request");
+    expect(userMessage.querySelector(".responsive-copy--mobile")).toHaveTextContent("yoo how much for these");
     expect(userMessage.querySelectorAll("br")).toHaveLength(1);
     expect(dibsResponse).toHaveClass("imessage-bubble--upload-response");
+    expect(dibsResponse).toHaveClass("imessage-bubble--jordans-response");
     expect(userMessage.compareDocumentPosition(dibsResponse) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(jordanCard).toContainElement(userMessage);
     expect(jordanImage!.compareDocumentPosition(userMessage) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
@@ -191,7 +193,7 @@ describe("HeroShowcase", () => {
     });
   });
 
-  it("lowers the camera upload and response without changing the Jordans layout", () => {
+  it("keeps the camera and Jordans response positioning isolated", () => {
     render(<HeroShowcase />);
 
     expect(screen.getByTestId("hero-card-camera")).toHaveClass("featured-popup-stack--camera");
@@ -199,6 +201,7 @@ describe("HeroShowcase", () => {
     expect(screen.getByTestId("hero-reply-camera").querySelectorAll("br")).toHaveLength(1);
     expect(screen.getByTestId("hero-card-jordans")).not.toHaveClass("featured-popup-stack--camera");
     expect(screen.getByTestId("hero-response-jordans")).not.toHaveClass("imessage-bubble--camera-response");
+    expect(screen.getByTestId("hero-response-camera")).not.toHaveClass("imessage-bubble--jordans-response");
   });
 
   it("places the bike result above the new offer reply", () => {

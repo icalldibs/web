@@ -36,7 +36,7 @@ export const heroScenarios = [
     mobileMessage: "Pairs like yours sell for $100.",
     detail: "12 buyers near you!",
     reply: "yoo i wanna sell my jordans",
-    mobileReply: "list my Jordans",
+    mobileReply: "yoo how much for these",
     replyLines: ["yoo i wanna sell my", "jordans"],
   },
   {
@@ -244,7 +244,7 @@ export function HeroShowcase() {
           const isActive = index === activeIndex;
           return (
             <p
-              className={`imessage-bubble imessage-bubble--upload-response${scenario.id === "camera" ? " imessage-bubble--camera-response" : ""} hero-transition-layer hero-transition-layer--reply${isActive ? " is-active" : ""}`}
+              className={`imessage-bubble imessage-bubble--upload-response${scenario.id === "jordans" ? " imessage-bubble--jordans-response" : ""}${scenario.id === "camera" ? " imessage-bubble--camera-response" : ""} hero-transition-layer hero-transition-layer--reply${isActive ? " is-active" : ""}`}
               aria-hidden={!isActive}
               data-testid={`hero-response-${scenario.id}`}
               key={`response-${scenario.id}`}

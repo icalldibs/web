@@ -433,8 +433,8 @@ a { color: inherit; }
     aspect-ratio: 24 / 23;
     transform: translateX(-50%) scale(.92);
   }
-  .featured-popup-stack { top: -5%; left: 7%; width: 42%; }
-  .featured-popup-stack--user-upload { top: -8%; right: -2%; left: auto; width: 42%; }
+  .featured-popup-stack { top: -5%; left: 2%; width: 42%; }
+  .featured-popup-stack--user-upload { top: -8%; right: -6%; left: auto; width: 42%; }
   .featured-popup-stack--camera { top: -5%; }
   .featured-popup-stack--bike,
   .featured-popup-stack--tickets,
@@ -454,10 +454,11 @@ a { color: inherit; }
     line-height: 1.22;
   }
   .imessage-bubble__distance { margin-top: .6em; }
-  .imessage-bubble--upload-response { top: 49%; left: 2%; width: 61%; margin: 0; }
+  .imessage-bubble--upload-response { top: 49%; left: -2%; width: 61%; margin: 0; }
   .imessage-bubble--camera-response { top: 59%; }
-  .imessage-bubble--sent { top: 78%; right: 3%; width: max-content; max-width: 82%; margin: 0; }
-  .imessage-bubble--request-first { top: 18%; right: 3%; }
+  .imessage-bubble--sent { top: 78%; right: -2%; width: max-content; max-width: 82%; margin: 0; }
+  .imessage-bubble--request-first { top: 18%; right: -2%; }
+  .imessage-bubble--upload-request { left: -25%; }
   .imessage-bubble--tickets-reply,
   .imessage-bubble--macbook-reply,
   .imessage-bubble--bike-reply { top: 72%; }

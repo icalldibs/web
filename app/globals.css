@@ -427,11 +427,11 @@ a { color: inherit; }
   .showcase-visual {
     top: auto;
     right: auto;
-    bottom: max(190px, calc(env(safe-area-inset-bottom) + 180px));
+    bottom: max(210px, calc(env(safe-area-inset-bottom) + 200px));
     left: 50%;
-    width: min(72vw, 290px);
+    width: min(76vw, 310px);
     aspect-ratio: 24 / 23;
-    transform: translateX(-50%) scale(.86);
+    transform: translateX(-50%) scale(.92);
   }
   .featured-popup-stack { top: -5%; left: 7%; width: 42%; }
   .featured-popup-stack--user-upload { top: -8%; right: -2%; left: auto; width: 42%; }

@@ -130,6 +130,7 @@ a { color: inherit; }
 .featured-popup__meta { display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 9px 3px 0; color: #404044; font-size: clamp(.7rem, 1.85svh, .94rem); }
 .featured-popup__location { display: flex; min-width: 0; align-items: center; gap: 4px; white-space: nowrap; }
 .featured-popup__location svg { width: 14px; flex: 0 0 14px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.featured-popup__distance { flex: 0 0 auto; white-space: nowrap; }
 .imessage-bubble {
   position: relative;
   width: 145%;

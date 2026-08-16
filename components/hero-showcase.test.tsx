@@ -137,6 +137,7 @@ describe("HeroShowcase", () => {
     expect(imageStack).toHaveClass("featured-popup-stack--tickets");
     expect(imageStack).not.toHaveClass("featured-popup-stack--request-first");
     expect(imageStack.querySelector(".imessage-bubble")).toHaveTextContent("Gary is selling them for $85 each. Pretty good seats too.");
+    expect(imageStack.querySelector(".featured-popup__distance")).toHaveTextContent("· 2.4 mi");
     expect(reply).toHaveTextContent("fs bet! connect me w him");
     expect(reply).toHaveClass("imessage-bubble--tickets-reply");
     expect(reply).not.toHaveClass("imessage-bubble--request-first");

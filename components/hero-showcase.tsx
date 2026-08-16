@@ -174,7 +174,7 @@ export function HeroShowcase() {
                     </svg>
                     {scenario.location}
                   </span>
-                  <span>· {scenario.rating.endsWith("mi") ? scenario.rating : `${scenario.rating} mi`}</span>
+                  <span className="featured-popup__distance">· {scenario.rating.endsWith("mi") ? scenario.rating : `${scenario.rating} mi`}</span>
                 </div>
               </aside>
               {"userUpload" in scenario && (

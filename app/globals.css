@@ -463,10 +463,10 @@ a { color: inherit; }
   .imessage-bubble--bike-reply { top: 72%; }
   .imessage-bubble--bike-reply { padding-left: 14px; }
   .hero-content {
-    top: 61svh;
-    bottom: auto;
+    top: auto;
+    bottom: max(54px, calc(env(safe-area-inset-bottom) + 44px));
     width: calc(100vw - 32px);
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
   }
   .hero-heading {
     display: flex;

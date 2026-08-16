@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import legalHeaderLogo from "@/public/branding/legal-header-logo.png";
 
 export function LegalHeader({ currentPage = "privacy" }: { currentPage?: "privacy" | "terms" | "company" }) {
   return (
     <header className="privacy-header">
       <Link className="privacy-header__brand" href="/" aria-label="Dibs home">
-        <Image src="/branding/legal-header-logo.png" alt="" width={40} height={40} priority />
+        <Image src={legalHeaderLogo} alt="" width={40} height={40} priority />
       </Link>
 
       <nav className="privacy-header__nav" aria-label="Primary navigation">

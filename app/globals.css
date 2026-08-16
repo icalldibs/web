@@ -470,7 +470,7 @@ a { color: inherit; }
   .responsive-copy--mobile { display: inline; }
   .imessage-bubble__distance { margin-top: .6em; }
   .imessage-bubble--upload-response { top: 51%; left: -2%; width: 66%; margin: 0; }
-  .imessage-bubble--jordans-response { top: 64%; }
+  .imessage-bubble--jordans-response { top: 67%; }
   .imessage-bubble--camera-response { top: 58%; }
   .imessage-bubble--sent { top: 80%; right: -2%; width: max-content; max-width: 88%; margin: 0; }
   .imessage-bubble--request-first { top: 18%; right: -2%; }
@@ -482,7 +482,7 @@ a { color: inherit; }
     white-space: normal;
   }
   .imessage-bubble--jordans-request br { display: initial; }
-  .imessage-bubble--jordans-request { margin-top: 7%; }
+  .imessage-bubble--jordans-request { margin-top: 6%; }
   .imessage-bubble--macbook-reply,
   .imessage-bubble--bike-reply { top: 75%; }
   .imessage-bubble--tickets-reply { top: 78%; }

@@ -426,7 +426,7 @@ a { color: inherit; }
   }
   .home-header { top: 18px; left: 20px; }
   .home-header__brand,
-  .home-header__logo { width: 48px; height: 48px; }
+  .home-header__logo { width: 56px; height: 56px; }
   .home-location-badge { top: 15px; right: 18px; width: 82px; }
   .phone-showcase {
     position: absolute;

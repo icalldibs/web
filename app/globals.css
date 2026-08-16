@@ -459,8 +459,9 @@ a { color: inherit; }
   .imessage-bubble--sent { top: 78%; right: -2%; width: max-content; max-width: 82%; margin: 0; }
   .imessage-bubble--request-first { top: 18%; right: -2%; }
   .imessage-bubble--upload-request {
-    left: -72%;
-    width: 180%;
+    left: -120%;
+    width: 195%;
+    max-width: none;
     white-space: normal;
   }
   .imessage-bubble--tickets-reply,

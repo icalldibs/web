@@ -33,6 +33,7 @@ export const heroScenarios = [
     message: "These Jordans are in demand nearby. Similar pairs are selling for around $100. Want me to list yours?",
     detail: "12 buyers near you!",
     reply: "yoo i wanna sell my jordans",
+    replyLines: ["yoo i wanna sell my", "jordans"],
   },
   {
     id: "tickets",
@@ -182,19 +183,17 @@ export function HeroShowcase() {
                   aria-hidden={!isActive}
                   data-testid={`hero-reply-${scenario.id}`}
                 >
-                  {"replyLines" in scenario
-                    ? scenario.replyLines.map((line, lineIndex) => (
-                        <span key={line}>
-                          {line}
-                          {lineIndex < scenario.replyLines.length - 1 && (
-                            <>
-                              {" "}
-                              <br />
-                            </>
-                          )}
-                        </span>
-                      ))
-                    : scenario.reply}
+                  {scenario.replyLines.map((line, lineIndex) => (
+                    <span key={line}>
+                      {line}
+                      {lineIndex < scenario.replyLines.length - 1 && (
+                        <>
+                          {" "}
+                          <br />
+                        </>
+                      )}
+                    </span>
+                  ))}
                 </p>
               )}
               {!("userUpload" in scenario) && (

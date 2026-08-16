@@ -57,11 +57,12 @@ describe("HeroShowcase", () => {
     expect(jordanCard).toHaveTextContent("1.1");
     expect(screen.getByText(/These Jordans are in demand nearby/)).toBeInTheDocument();
     expect(screen.getByText(/selling for around \$100/)).toBeInTheDocument();
-    expect(screen.getByText("yoo i wanna sell my jordans")).toBeInTheDocument();
     const userMessage = screen.getByTestId("hero-reply-jordans");
     const dibsResponse = screen.getByText(/These Jordans are in demand nearby/);
+    expect(userMessage).toHaveTextContent("yoo i wanna sell my jordans");
     expect(jordanCard).toHaveClass("featured-popup-stack--user-upload");
     expect(userMessage).toHaveClass("imessage-bubble--upload-request");
+    expect(userMessage.querySelectorAll("br")).toHaveLength(1);
     expect(dibsResponse).toHaveClass("imessage-bubble--upload-response");
     expect(userMessage.compareDocumentPosition(dibsResponse) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(jordanCard).toContainElement(userMessage);

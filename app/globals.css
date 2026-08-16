@@ -471,7 +471,7 @@ a { color: inherit; }
   .imessage-bubble__distance { margin-top: .6em; }
   .imessage-bubble--upload-response { top: 51%; left: -2%; width: 66%; margin: 0; }
   .imessage-bubble--jordans-response { top: 67%; }
-  .imessage-bubble--camera-response { top: 67%; }
+  .imessage-bubble--camera-response { top: 70%; }
   .imessage-bubble--sent { top: 80%; right: -2%; width: max-content; max-width: 88%; margin: 0; }
   .imessage-bubble--request-first { top: 18%; right: -2%; }
   .imessage-bubble--upload-request {

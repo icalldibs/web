@@ -198,8 +198,10 @@ describe("HeroShowcase", () => {
 
     expect(screen.getByTestId("hero-card-camera")).toHaveClass("featured-popup-stack--camera");
     expect(screen.getByTestId("hero-response-camera")).toHaveClass("imessage-bubble--camera-response");
+    expect(screen.getByTestId("hero-reply-camera")).toHaveClass("imessage-bubble--camera-request");
     expect(screen.getByTestId("hero-reply-camera").querySelectorAll("br")).toHaveLength(1);
     expect(screen.getByTestId("hero-card-jordans")).not.toHaveClass("featured-popup-stack--camera");
+    expect(screen.getByTestId("hero-reply-jordans")).not.toHaveClass("imessage-bubble--camera-request");
     expect(screen.getByTestId("hero-response-jordans")).not.toHaveClass("imessage-bubble--camera-response");
     expect(screen.getByTestId("hero-response-camera")).not.toHaveClass("imessage-bubble--jordans-response");
   });

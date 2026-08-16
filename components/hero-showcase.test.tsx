@@ -58,7 +58,7 @@ describe("HeroShowcase", () => {
     expect(screen.getByText(/These Jordans are in demand nearby/)).toBeInTheDocument();
     expect(screen.getByText(/selling for around \$100/)).toBeInTheDocument();
     const userMessage = screen.getByTestId("hero-reply-jordans");
-    const dibsResponse = screen.getByText(/These Jordans are in demand nearby/);
+    const dibsResponse = screen.getByTestId("hero-response-jordans");
     expect(userMessage).toHaveTextContent("yoo i wanna sell my jordans");
     expect(jordanCard).toHaveClass("featured-popup-stack--user-upload");
     expect(userMessage).toHaveClass("imessage-bubble--upload-request");
@@ -71,7 +71,7 @@ describe("HeroShowcase", () => {
     expect(jordanCard).not.toContainElement(dibsResponse);
   });
 
-  it("adds four buy and sell marketplace examples with the requested copy and placement", () => {
+  it("adds four buy and sell marketplace examples with desktop and shorter mobile copy", () => {
     expect(heroScenarios).toHaveLength(6);
     expect(heroScenarios.slice(2)).toEqual([
       {
@@ -84,7 +84,9 @@ describe("HeroShowcase", () => {
         location: "Downtown",
         rating: "2.4 mi",
         message: "Gary is selling them for $85 each. Pretty good seats too.",
+        mobileMessage: "Gary has them for $85 each.",
         reply: "fs bet! connect me w him",
+        mobileReply: "bet! connect us",
       },
       {
         id: "macbook",
@@ -96,7 +98,9 @@ describe("HeroShowcase", () => {
         location: "Brickell, Miami",
         rating: "3.2 mi",
         message: "Found one for $650. M1, barely used.",
+        mobileMessage: "M1 MacBook, $650. Barely used.",
         reply: "yoo thanks lets make a deal!",
+        mobileReply: "let’s make a deal!",
       },
       {
         id: "camera",
@@ -109,7 +113,9 @@ describe("HeroShowcase", () => {
         rating: "2.1 mi",
         userUpload: true,
         message: "I’d say around $700. I found 8 buyers near you looking for cameras like this. I’d list it and see what happens.",
+        mobileMessage: "$700. 8 nearby buyers want one.",
         reply: "yo dibs how much you think i can get for this",
+        mobileReply: "what’s my camera worth?",
         replyLines: ["yo dibs how much you think", "i can get for this"],
       },
       {
@@ -122,7 +128,9 @@ describe("HeroShowcase", () => {
         location: "Coral Gables",
         rating: "1.8 mi",
         message: "Found a Trek for $420. Looks barely used.",
+        mobileMessage: "Trek for $420. Barely used.",
         reply: "lowk needed it! tho offer $350 for it",
+        mobileReply: "offer $350",
         replyLines: ["lowk needed it!", "tho offer $350 for it"],
       },
     ]);
@@ -170,8 +178,10 @@ describe("HeroShowcase", () => {
         : imageStack.querySelector(".imessage-bubble");
 
       expect(imageStack.querySelectorAll("img")).toHaveLength(1);
-      expect(userMessage).toHaveTextContent(scenario.reply);
-      expect(dibsMessage).toHaveTextContent(scenario.message);
+      expect(userMessage.querySelector(".responsive-copy--desktop")).toHaveTextContent(scenario.reply);
+      expect(userMessage.querySelector(".responsive-copy--mobile")).toHaveTextContent(scenario.mobileReply);
+      expect(dibsMessage?.querySelector(".responsive-copy--desktop")).toHaveTextContent(scenario.message);
+      expect(dibsMessage?.querySelector(".responsive-copy--mobile")).toHaveTextContent(scenario.mobileMessage);
       expect(imageStack).toHaveTextContent(`${scenario.location}· ${scenario.rating}`);
       if ("userUpload" in scenario) {
         expect(imageStack).toHaveClass("featured-popup-stack--user-upload");

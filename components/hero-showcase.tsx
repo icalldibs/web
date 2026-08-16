@@ -17,8 +17,10 @@ export const heroScenarios = [
     location: "Miami, FL",
     rating: "1.1",
     message: "I found the cheapest PS5 near you. It’s $270 with a controller. I think that’s a steal, deal?",
+    mobileMessage: "PS5 for $270, controller included.",
     detail: "1.1mi away from you!",
     reply: "yooo lets make it happen!",
+    mobileReply: "deal! let’s do it",
   },
   {
     id: "jordans",
@@ -31,8 +33,10 @@ export const heroScenarios = [
     rating: "1.1",
     userUpload: true,
     message: "These Jordans are in demand nearby. Similar pairs are selling for around $100. Want me to list yours?",
+    mobileMessage: "Pairs like yours sell for $100.",
     detail: "12 buyers near you!",
     reply: "yoo i wanna sell my jordans",
+    mobileReply: "list my Jordans",
     replyLines: ["yoo i wanna sell my", "jordans"],
   },
   {
@@ -45,7 +49,9 @@ export const heroScenarios = [
     location: "Downtown",
     rating: "2.4 mi",
     message: "Gary is selling them for $85 each. Pretty good seats too.",
+    mobileMessage: "Gary has them for $85 each.",
     reply: "fs bet! connect me w him",
+    mobileReply: "bet! connect us",
   },
   {
     id: "macbook",
@@ -57,7 +63,9 @@ export const heroScenarios = [
     location: "Brickell, Miami",
     rating: "3.2 mi",
     message: "Found one for $650. M1, barely used.",
+    mobileMessage: "M1 MacBook, $650. Barely used.",
     reply: "yoo thanks lets make a deal!",
+    mobileReply: "let’s make a deal!",
   },
   {
     id: "camera",
@@ -70,7 +78,9 @@ export const heroScenarios = [
     rating: "2.1 mi",
     userUpload: true,
     message: "I’d say around $700. I found 8 buyers near you looking for cameras like this. I’d list it and see what happens.",
+    mobileMessage: "$700. 8 nearby buyers want one.",
     reply: "yo dibs how much you think i can get for this",
+    mobileReply: "what’s my camera worth?",
     replyLines: ["yo dibs how much you think", "i can get for this"],
   },
   {
@@ -83,10 +93,43 @@ export const heroScenarios = [
     location: "Coral Gables",
     rating: "1.8 mi",
     message: "Found a Trek for $420. Looks barely used.",
+    mobileMessage: "Trek for $420. Barely used.",
     reply: "lowk needed it! tho offer $350 for it",
+    mobileReply: "offer $350",
     replyLines: ["lowk needed it!", "tho offer $350 for it"],
   },
 ] as const;
+
+function ResponsiveCopy({
+  desktop,
+  mobile,
+  desktopLines,
+}: {
+  desktop: string;
+  mobile: string;
+  desktopLines?: readonly string[];
+}) {
+  return (
+    <>
+      <span className="responsive-copy responsive-copy--desktop">
+        {desktopLines
+          ? desktopLines.map((line, index) => (
+              <span key={line}>
+                {line}
+                {index < desktopLines.length - 1 && (
+                  <>
+                    {" "}
+                    <br />
+                  </>
+                )}
+              </span>
+            ))
+          : desktop}
+      </span>
+      <span className="responsive-copy responsive-copy--mobile">{mobile}</span>
+    </>
+  );
+}
 
 export function HeroShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -161,7 +204,7 @@ export function HeroShowcase() {
                     alt={scenario.imageAlt}
                     width={scenario.width}
                     height={scenario.height}
-                    sizes="(max-width: 600px) 42vw, 240px"
+                    sizes="(max-width: 600px) 47vw, 240px"
                     unoptimized
                     priority={index === 0}
                   />
@@ -183,22 +226,12 @@ export function HeroShowcase() {
                   aria-hidden={!isActive}
                   data-testid={`hero-reply-${scenario.id}`}
                 >
-                  {scenario.replyLines.map((line, lineIndex) => (
-                    <span key={line}>
-                      {line}
-                      {lineIndex < scenario.replyLines.length - 1 && (
-                        <>
-                          {" "}
-                          <br />
-                        </>
-                      )}
-                    </span>
-                  ))}
+                  <ResponsiveCopy desktop={scenario.reply} mobile={scenario.mobileReply} desktopLines={scenario.replyLines} />
                 </p>
               )}
               {!("userUpload" in scenario) && (
                 <p className="imessage-bubble">
-                  &quot;{scenario.message}&quot;
+                  <ResponsiveCopy desktop={`“${scenario.message}”`} mobile={`“${scenario.mobileMessage}”`} />
                   {"detail" in scenario && <span className="imessage-bubble__distance">{scenario.detail}</span>}
                 </p>
               )}
@@ -216,7 +249,7 @@ export function HeroShowcase() {
               data-testid={`hero-response-${scenario.id}`}
               key={`response-${scenario.id}`}
             >
-              &quot;{scenario.message}&quot;
+              <ResponsiveCopy desktop={`“${scenario.message}”`} mobile={`“${scenario.mobileMessage}”`} />
               {"detail" in scenario && <span className="imessage-bubble__distance">{scenario.detail}</span>}
             </p>
           );
@@ -232,19 +265,11 @@ export function HeroShowcase() {
               data-testid={`hero-reply-${scenario.id}`}
               key={`reply-${scenario.id}`}
             >
-              {"replyLines" in scenario
-                ? scenario.replyLines.map((line, lineIndex) => (
-                    <span key={line}>
-                      {line}
-                      {lineIndex < scenario.replyLines.length - 1 && (
-                        <>
-                          {" "}
-                          <br />
-                        </>
-                      )}
-                    </span>
-                  ))
-                : scenario.reply}
+              <ResponsiveCopy
+                desktop={scenario.reply}
+                mobile={scenario.mobileReply}
+                desktopLines={"replyLines" in scenario ? scenario.replyLines : undefined}
+              />
             </p>
           );
         })}

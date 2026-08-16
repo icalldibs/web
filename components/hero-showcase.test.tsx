@@ -62,6 +62,7 @@ describe("HeroShowcase", () => {
     expect(userMessage).toHaveTextContent("yoo i wanna sell my jordans");
     expect(jordanCard).toHaveClass("featured-popup-stack--user-upload");
     expect(userMessage).toHaveClass("imessage-bubble--upload-request");
+    expect(userMessage).toHaveClass("imessage-bubble--jordans-request");
     expect(userMessage.querySelectorAll("br")).toHaveLength(1);
     expect(dibsResponse).toHaveClass("imessage-bubble--upload-response");
     expect(userMessage.compareDocumentPosition(dibsResponse) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();

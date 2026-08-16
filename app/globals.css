@@ -7,7 +7,7 @@ a { color: inherit; }
 .blank-page { position: fixed; inset: 0; display: grid; place-items: center; overflow: hidden; background: var(--page-background); }
 .home-header { position: absolute; z-index: 10; top: clamp(20px, 3vw, 40px); left: clamp(20px, 4vw, 64px); }
 .home-header__brand,
-.home-header__logo { display: block; width: clamp(52px, 5vw, 64px); height: clamp(52px, 5vw, 64px); }
+.home-header__logo { display: block; width: clamp(56px, 5.4vw, 70px); height: clamp(56px, 5.4vw, 70px); }
 .home-header__brand { border-radius: 50%; }
 .home-header__brand:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
 .home-header__logo { object-fit: cover; border-radius: 50%; }
@@ -209,6 +209,7 @@ a { color: inherit; }
   white-space: nowrap;
   text-align: left;
 }
+.imessage-bubble--jordans-request br { display: none; }
 .imessage-bubble--upload-response {
   position: absolute;
   z-index: 4;
@@ -414,7 +415,7 @@ a { color: inherit; }
   }
   .home-header { top: 18px; left: 20px; }
   .home-header__brand,
-  .home-header__logo { width: 44px; height: 44px; }
+  .home-header__logo { width: 48px; height: 48px; }
   .home-location-badge { top: 15px; right: 18px; width: 82px; }
   .phone-showcase {
     position: absolute;
@@ -465,6 +466,7 @@ a { color: inherit; }
     transform: translateX(-100%);
     white-space: normal;
   }
+  .imessage-bubble--jordans-request br { display: initial; }
   .imessage-bubble--tickets-reply,
   .imessage-bubble--macbook-reply,
   .imessage-bubble--bike-reply { top: 72%; }

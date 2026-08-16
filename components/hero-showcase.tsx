@@ -179,7 +179,7 @@ export function HeroShowcase() {
               </aside>
               {"userUpload" in scenario && (
                 <p
-                  className="imessage-bubble imessage-bubble--sent imessage-bubble--upload-request"
+                  className={`imessage-bubble imessage-bubble--sent imessage-bubble--upload-request${scenario.id === "jordans" ? " imessage-bubble--jordans-request" : ""}`}
                   aria-hidden={!isActive}
                   data-testid={`hero-reply-${scenario.id}`}
                 >
